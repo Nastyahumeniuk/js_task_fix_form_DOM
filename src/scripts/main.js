@@ -26,16 +26,20 @@ loginForm.addEventListener('submit', function (e) {
   if (email === '' || password === '') {
     alert('Please fill in all fields');
   } else {
-    alert('Login successfully');
+    document.querySelectorAll('form')[0].style.display = 'none';
+    document.querySelectorAll('form')[1].style.display = 'none';
+
+    const successMessage = document.createElement('div');
+
+    successMessage.textContent = 'Вітаємо! Ви успішно увійшли.';
+    successMessage.classList.add('success-message');
+    successMessage.style.fontSize = '24px';
+    successMessage.style.color = 'green';
+    successMessage.style.marginTop = '20px';
+    successMessage.style.textAlign = 'center';
+
+    document.body.appendChild(successMessage);
   }
-
-  const signUpForm = document.querySelectorAll('form')[0];
-
-  signUpForm.style.display = 'none';
-
-  const signInForm = document.querySelectorAll('form')[1];
-
-  signInForm.style.display = 'block';
 });
 
 window.addEventListener('load', function () {
